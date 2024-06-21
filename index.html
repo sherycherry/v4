@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blank Blankerson - Freelance Artist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+        }
+        header {
+            background-color: #181919;
+            color: #F0FFFF;
+            padding: 1em 0;
+            text-align: center;
+        }
+        header h1 {
+            cursor: pointer;
+            color: #F0FFFF;
+        }
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        nav a {
+            color: #F0FFFF;
+            margin: 0 1em;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            width: 80%;
+            margin: 2em auto;
+            text-align: center;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .cube {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(0deg) rotateY(0deg);
+            transition: transform 1s;
+            margin: 2em auto;
+            cursor: pointer;
+        }
+        .cube div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        .front { background-image: url(nails.jpg); transform: rotateY(0deg) translateZ(100px); }
+        .back { background-image: url(camera.jpg); transform: rotateY(180deg) translateZ(100px); }
+        .right { background-image: url(book.jpg); transform: rotateY(90deg) translateZ(100px); }
+        .left { background-image: url(amps.jpg); transform: rotateY(-90deg) translateZ(100px); }
+        .top { background-image: url(inks.jpg); transform: rotateX(90deg) translateZ(100px); }
+        .bottom { background-image: url(headphones.jpg); transform: rotateX(-90deg) translateZ(100px); }
+        @keyframes rotate {
+            0% { transform: rotateY(0deg); }
+            20% { transform: rotateY(90deg); }
+            40% { transform: rotateY(180deg); }
+            60% { transform: rotateY(270deg); }
+            80% { transform: rotateY(360deg); }
+            100% { transform: rotateY(450deg); }
+        }
+        .rotate {
+            animation: rotate 10s infinite linear;
+        }
+        .footer {
+            background-color: #181919;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        section {
+            display: none;
+        }
+        section:target {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 onclick="window.location.hash='#about'">Blank Blankerson</h1>
+        <p>Freelance Artist Exploring Creativity and Artistic Capabilities</p>
+    </header>
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! My name is Blank Blankerson. I am a freelance artist exploring my creativity and artistic capabilities. My journey in the art world is driven by a passion for visual expression and a desire to bring my unique perspective to life.</p>
+        </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="cube rotate" id="cube">
+                <div class="front"></div>
+                <div class="back"></div>
+                <div class="right"></div>
+                <div class="left"></div>
+                <div class="top"></div>
+                <div class="bottom"></div>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact Information</h2>
+            <p>Feel free to reach out to me for any art projects, collaborations, or inquiries:</p>
+            <p>Email: <a href="mailto:blank.blankerson@example.com">blank.blankerson@example.com</a></p>
+        </section>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2024 Blank Blankerson. All rights reserved.</p>
+    </footer>
+    <script>
+        const cube = document.getElementById('cube');
+        let rotation = 0;
+
+        setInterval(() => {
+            rotation += 90;
+            cube.style.transform = `rotateY(${rotation}deg)`;
+        }, 5000);
+
+        cube.addEventListener('click', () => {
+            rotation += 90;
+            cube.style.transform = `rotateY(${rotation}deg)`;
+        });
+    </script>
+</body>
+</html>
